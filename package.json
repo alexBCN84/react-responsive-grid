@@ -1,0 +1,49 @@
+{
+  "name": "react-grid-lib",
+  "version": "0.0.1",
+  "description": "React-responsive-grid is a package offering a grid layout system for your react projects. It's easy to use and highly customisable via props. It works in a very similar way to other grids in frontend frameworks like Bootstrap or Semantic UI. The main difference is the high level of flexibility that react-responsive-grid uses. It allows you to set up the number of columns you want for your grid (default is set to 12). You pretty much have full control over your grid because all default styles can be overridden simply by passing your own styles into the grid via the style prop.",
+  "main": "dist/grid.min.js",
+  "scripts": {
+    "build": "rollup -c -o dist/grid.min.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexBCN84/react-responsive-grid.git"
+  },
+  "keywords": [
+    "react",
+    "UI",
+    "grid",
+    "responsive",
+    "columns",
+    "rows",
+    "offset",
+    "flexible",
+    "layout",
+    "grid-system",
+    "reactjs",
+    "radium"
+  ],
+  "author": "Alejandro Gines <alejandro.ginesmartinez@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexBCN84/react-responsive-grid/issues"
+  },
+  "homepage": "https://github.com/alexBCN84/react-responsive-grid#readme",
+  "devDependencies": {
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.8.2",
+    "rollup": "^1.2.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-uglify": "^6.0.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "proptypes": "^1.1.0",
+    "radium": "^0.25.1"
+  }
+}
