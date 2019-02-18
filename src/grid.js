@@ -1,7 +1,7 @@
 import React from 'react';
 import breakpoint from './breakpoints';
 import { PropTypes } from 'prop-types';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 const grid = (props) => {
 
@@ -136,7 +136,7 @@ col.propTypes = {
     children: PropTypes.node
 }
 
-const Grid = Radium(grid);
+const Grid = StyleRoot(Radium(grid));
 const Row = Radium(row);
 const Col = Radium(col);
 
