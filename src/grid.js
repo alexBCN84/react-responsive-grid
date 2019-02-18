@@ -1,7 +1,7 @@
 import React from 'react';
 import breakpoint from './breakpoints';
 import { PropTypes } from 'prop-types';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 const grid = (props) => {
 
@@ -16,7 +16,7 @@ const grid = (props) => {
         React.cloneElement(child, { gutters: props.gutters, reverse: props.reverse })
     );
     return (
-        <div style={{ ...gridStyles, ...props.style }}>{rows}</div>
+        <StyleRoot><div style={{ ...gridStyles, ...props.style }}>{rows}</div></StyleRoot>
     )
 }
 
@@ -38,8 +38,8 @@ const row = (props) => {
                     : "center"
     );
     const componentStyles = {
-        marginLeft: props.gutters ? -(props.gutters / 2) : -16,
-        marginRight: props.gutters ? -(props.gutters / 2) : -16,
+        // marginLeft: props.gutters ? -(props.gutters / 2) : -16,
+        // marginRight: props.gutters ? -(props.gutters / 2) : -16,
         padding: 0,
         display: "flex",
         flexWrap: "wrap",
@@ -93,7 +93,7 @@ const col = (props) => {
 
     const columnStyles = {
         position: "relative",
-        padding: props.gutters === 0 ? 0 : (props.gutters / 2) || 16,
+        // padding: props.gutters === 0 ? 0 : -(props.gutters / 2) || -16,
         ...spanning(width, totalCols, offset),
         [breakpoint.mobile]: {
             ...spanning(mobile, totalCols, mobileOffset)
