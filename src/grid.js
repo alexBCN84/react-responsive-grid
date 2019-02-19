@@ -38,8 +38,8 @@ const row = (props) => {
                     : "center"
     );
     const componentStyles = {
-        // marginLeft: props.gutters ? -(props.gutters / 2) : -16,
-        // marginRight: props.gutters ? -(props.gutters / 2) : -16,
+        marginLeft: props.gutters ? -(props.gutters / 2) : -16,
+        marginRight: props.gutters ? -(props.gutters / 2) : -16,
         padding: 0,
         display: "flex",
         flexWrap: "wrap",
@@ -93,7 +93,7 @@ const col = (props) => {
 
     const columnStyles = {
         position: "relative",
-        // padding: props.gutters === 0 ? 0 : -(props.gutters / 2) || -16,
+        padding: props.gutters === 0 ? 0 : -(props.gutters / 2) || -16,
         ...spanning(width, totalCols, offset),
         [breakpoint.mobile]: {
             ...spanning(mobile, totalCols, mobileOffset)
