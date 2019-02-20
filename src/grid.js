@@ -3,9 +3,11 @@ import breakpoint from './breakpoints';
 import { PropTypes } from 'prop-types';
 import Radium, {StyleRoot} from 'radium';
 
+
 const grid = (props) => {
 
     const gridStyles = {
+        position: "relative",
         width: "100%",
         maxWidth: ((props.fullWidth && "100%") || (props.maxWidth && props.maxWidth)) || "1200px",
         margin: "0 auto"
@@ -38,9 +40,8 @@ const row = (props) => {
                     : "center"
     );
     const componentStyles = {
-        marginLeft: props.gutters ? -(props.gutters / 2) : -16,
-        marginRight: props.gutters ? -(props.gutters / 2) : -16,
-        padding: 0,
+        paddingLeft: props.gutters ? (props.gutters / 2) : 16,
+        paddingRight: props.gutters ? (props.gutters / 2) : 16,
         display: "flex",
         flexWrap: "wrap",
         justifyContent: columnsAlignment,
@@ -64,14 +65,12 @@ row.propTypes = {
 }
 
 const col = (props) => {
-    const spanning = (nOfCols = 0, totalCols, offset) => {
-
-        const oneColSpan = 100 / totalCols;
+    const spanning = (nOfCols = 0, totalCols, offset, gutters) => {
         if (nOfCols === 0) return 0;
         if (nOfCols < 0 || nOfCols % 1 !== 0) return (function () { throw `${nOfCols} is not a valid number for this row` }());
         if (nOfCols > totalCols) return (function () { throw `the maximum number of columns for this row is ${totalCols}` }());
-        const width = nOfCols === undefined ? null : ({ width: `${oneColSpan * nOfCols}%` })
-        const marginLeft = offset === undefined ? null : ({ marginLeft: `${oneColSpan * offset}%` });
+        const width = nOfCols === undefined ? null : ({ width: `calc(100% / 12 * ${nOfCols} - ${gutters || 32}px)` }) 
+        const marginLeft = offset === undefined ? null : ({ marginLeft:`calc(100% / 12 * ${offset} - ${gutters || 32}px)` });
         return {
             display: nOfCols === 0 ? 'none' : 'block',
             ...width,
@@ -93,22 +92,22 @@ const col = (props) => {
 
     const columnStyles = {
         position: "relative",
-        padding: props.gutters === 0 ? 0 : -(props.gutters / 2) || -16,
-        ...spanning(width, totalCols, offset),
+        margin: props.gutters === 0 ? 0 : (props.gutters / 2) || 16,
+        ...spanning(width, totalCols, offset, props.gutters),
         [breakpoint.mobile]: {
-            ...spanning(mobile, totalCols, mobileOffset)
+            ...spanning(mobile, totalCols, mobileOffset, props.gutters)
         },
         [breakpoint.phablet]: {
-            ...spanning(phablet, totalCols, phabletOffset)
+            ...spanning(phablet, totalCols, phabletOffset, props.gutters)
         },
         [breakpoint.tablet]: {
-            ...spanning(tablet, totalCols, tabletOffset)
+            ...spanning(tablet, totalCols, tabletOffset, props.gutters)
         },
         [breakpoint.desktop]: {
-            ...spanning(desktop, totalCols, desktopOffset)
+            ...spanning(desktop, totalCols, desktopOffset, props.gutters)
         },
         [breakpoint.wideDesktop]: {
-            ...spanning(wideDesktop, totalCols, wideDesktopOffset)
+            ...spanning(wideDesktop, totalCols, wideDesktopOffset, props.gutters)
         }
     }
 
@@ -136,9 +135,9 @@ col.propTypes = {
     children: PropTypes.node
 }
 
-const Grid = Radium(grid);
-const Row = Radium(row);
-const Col = Radium(col);
+const Gridn = Radium(grid);
+const Rown = Radium(row);
+const Coln = Radium(col);
 
-export { Grid, Row, Col };
+export { Gridn, Rown, Coln };
 
