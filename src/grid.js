@@ -3,7 +3,6 @@ import breakpoint from './breakpoints';
 import { PropTypes } from 'prop-types';
 import Radium, {StyleRoot} from 'radium';
 
-
 const grid = (props) => {
 
     const gridStyles = {
@@ -135,9 +134,9 @@ col.propTypes = {
     children: PropTypes.node
 }
 
-const Gridn = Radium(grid);
-const Rown = Radium(row);
-const Coln = Radium(col);
+const Grid = StyleRoot(Radium(grid));
+const Row = Radium(row);
+const Col = Radium(col);
 
-export { Gridn, Rown, Coln };
+export { Grid, Row, Col };
 
