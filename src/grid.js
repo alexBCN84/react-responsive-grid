@@ -134,7 +134,7 @@ col.propTypes = {
     children: PropTypes.node
 }
 
-const Grid = StyleRoot(Radium(grid));
+const Grid = Radium(grid);
 const Row = Radium(row);
 const Col = Radium(col);
 
