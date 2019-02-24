@@ -30,7 +30,6 @@ import {Grid, Row, Col} from 'react-grid-lib';
 ```
 
 
-
 ## Grid API
 
 <PropsTable of={Grid} />
