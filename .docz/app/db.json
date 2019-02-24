@@ -1,0 +1,82 @@
+{
+  "config": {
+    "title": "React Grid Lib",
+    "description": "React-responsive-grid is a package offering a grid layout system for your react projects. It's easy to use and highly customisable via props. It works in a very similar way to other grids in frontend frameworks like Bootstrap or Semantic UI. The main difference is the high level of flexibility that react-responsive-grid uses. It allows you to set up the number of columns you want for your grid (default is set to 12). You pretty much have full control over your grid because all default styles can be overridden simply by passing your own styles into the grid via the style prop.",
+    "menu": [],
+    "ordering": "descending",
+    "version": "0.2.5",
+    "repository": "https://github.com/alexBCN84/react-responsive-grid",
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {}
+  },
+  "entries": {
+    "documentation.mdx": {
+      "name": "React Responsive Grid",
+      "id": "080603f6ffb56146065a1dd3c5c46e8e",
+      "filepath": "documentation.mdx",
+      "link": "https://github.com/alexBCN84/react-responsive-grid/edit/master/documentation.mdx",
+      "slug": "documentation",
+      "route": "/documentation",
+      "order": 0,
+      "menu": null,
+      "headings": [
+        {
+          "depth": 2,
+          "slug": "description",
+          "value": "Description"
+        },
+        {
+          "depth": 2,
+          "slug": "requirements",
+          "value": "Requirements"
+        },
+        {
+          "depth": 2,
+          "slug": "setup-instructions",
+          "value": "Setup instructions"
+        },
+        {
+          "depth": 2,
+          "slug": "grid-api",
+          "value": "Grid API"
+        },
+        {
+          "depth": 3,
+          "slug": "customisation-of-the-grid-component",
+          "value": "Customisation of the Grid Component"
+        },
+        {
+          "depth": 2,
+          "slug": "row-api",
+          "value": "Row API"
+        },
+        {
+          "depth": 3,
+          "slug": "customisation-of-the-row-component",
+          "value": "Customisation of the Row Component"
+        },
+        {
+          "depth": 2,
+          "slug": "col-api",
+          "value": "Col API"
+        },
+        {
+          "depth": 3,
+          "slug": "basic-example-of-layout-with-16-columns-aligned-left-and-same-width-for-all-devices",
+          "value": "Basic example of layout with 16 columns aligned left and same width for all devices"
+        },
+        {
+          "depth": 3,
+          "slug": "basic-example-of-layout-with-16-columns-with-offset-and-align-left",
+          "value": "Basic example of layout with 16 columns with offset and align left"
+        },
+        {
+          "depth": 3,
+          "slug": "example-of-responsive-layout-with-different-width-columns-for-different-breakpoints",
+          "value": "Example of responsive layout with different width columns for different breakpoints"
+        }
+      ]
+    }
+  }
+}

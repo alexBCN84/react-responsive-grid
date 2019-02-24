@@ -22,8 +22,14 @@ const grid = (props) => {
 grid.propTypes = {
     fullWidth: PropTypes.bool,
     maxWidth: PropTypes.number,
-    children: PropTypes.node.isRequired
-}
+    children: PropTypes.node.isRequired,
+    style: PropTypes.object,
+    gutters: PropTypes.number
+};
+
+grid.defaultProps = {
+    gutters: 32
+ };
 
 const row = (props) => {
     const columnsAlignment = (
@@ -55,7 +61,7 @@ const row = (props) => {
         window.matchMedia("(min-width: 1280px)")
     ]
     const columns = React.Children.map(children, child =>
-        React.cloneElement(child, { mqls: mqls, gutters: props.gutters, totalCols: props.totalCols || 12 })
+        React.cloneElement(child, { mqls: mqls, gutters: props.gutters, totalCols: props.totalCols })
     );
 
     return <div style={{ ...componentStyles, ...props.style }}>{columns}</div>;
@@ -63,10 +69,18 @@ const row = (props) => {
 
 row.propTypes = {
     align: PropTypes.string,
-    gutters: PropTypes.number,
     reverse: PropTypes.bool,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    style: PropTypes.object,
+    totalCols: PropTypes.number
 }
+
+row.defaultProps = {
+    totalCols: 12,
+    align: 'center'
+ };
+
+
 class Column extends Component {
     state = {
         position: "relative",
@@ -86,8 +100,8 @@ class Column extends Component {
             if (nOfCols === 0) return 0;
             if (nOfCols < 0 || nOfCols % 1 !== 0) return (function () { throw `${nOfCols} is not a valid number for this row` }());
             if (nOfCols > totalCols) return (function () { throw `the maximum number of columns for this row is ${totalCols}` }());
-            const width = nOfCols === undefined ? null : ({ width: `calc(100% / 12 * ${nOfCols} - ${gutters}px)`}) 
-            const marginLeft = offset === undefined ? null : ({ marginLeft:`calc(100% / 12 * ${offset} - ${gutters}px)`});
+            const width = nOfCols === undefined ? null : ({ width: `calc(100% / ${totalCols} * ${nOfCols} - ${gutters}px)`}) 
+            const marginLeft = offset === undefined ? null : ({ marginLeft:`calc(100% / ${totalCols} * ${offset} + ${gutters}px)`});
             return {
                 display: nOfCols === 0 ? 'none' : 'block',
                 ...width,
@@ -105,19 +119,19 @@ class Column extends Component {
     
             
         if ((width || mobile) && this.props.mqls[0].matches){ // {min-width: 0px} query matched
-            this.setState({...this.state, ...spanning(mobile || width, totalCols, offset, this.props.gutters)});
+            this.setState({...this.state, ...spanning(mobile || width, totalCols, offset || mobileOffset, this.props.gutters)});
         }
         if (phablet && this.props.mqls[1].matches){ // {min-width: 480px} query matched
-            this.setState({...this.state, ...spanning(phablet, totalCols, offset, this.props.gutters)});
+            this.setState({...this.state, ...spanning(phablet, totalCols, phabletOffset, this.props.gutters)});
         }
         if (tablet && this.props.mqls[2].matches){ // {min-width: 768px} query matched
-            this.setState({...this.state, ...spanning(tablet, totalCols, offset, this.props.gutters)});
+            this.setState({...this.state, ...spanning(tablet, totalCols, tabletOffset, this.props.gutters)});
         }
         if (desktop && this.props.mqls[3].matches){ // {min-width: 1024px} query matched
-            this.setState({...this.state, ...spanning(desktop, totalCols, offset, this.props.gutters)});
+            this.setState({...this.state, ...spanning(desktop, totalCols, desktopOffset, this.props.gutters)});
         }
         if (wideDesktop && this.props.mqls[4].matches){ // {min-width: 1280px} query matched
-            this.setState({...this.state, ...spanning(wideDesktop, totalCols, offset, this.props.gutters)});
+            this.setState({...this.state, ...spanning(wideDesktop, totalCols, wideDesktopOffset, this.props.gutters)});
         }
     }
     componentWillUnmount() {
@@ -133,8 +147,7 @@ class Column extends Component {
 
 
 Column.propTypes = {
-    styles: PropTypes.object,
-    gutters: PropTypes.number,
+    style: PropTypes.object,
     width: PropTypes.number,
     mobile: PropTypes.number,
     phablet: PropTypes.number,
