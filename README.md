@@ -1,6 +1,6 @@
 # React Responsive Grid Library
 
-Full documentation and API with examples here [react-responsive-grid](https://react-responsive-grid.netlify.com/documentation)
+Full documentation and API with examples here [react-responsive-grid](https://react-responsive-grid.netlify.com/)
 
 ## Description
 
