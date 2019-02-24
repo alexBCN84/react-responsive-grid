@@ -29,7 +29,12 @@ React-responsive-grid is a package offering a grid layout system for your react 
 import {Grid, Row, Col} from 'react-grid-lib';
 ```
 
+<<<<<<< HEAD
 
+=======
+import { Playground, PropsTable } from 'docz'
+import {Grid, Row, Col} from './src/grid'
+>>>>>>> a4abf821101056806583b353ff4f4633fb4d3c73
 
 ## Grid API
 
