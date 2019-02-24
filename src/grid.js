@@ -119,7 +119,6 @@ class Column extends Component {
         if (wideDesktop && this.props.mqls[4].matches){ // {min-width: 1280px} query matched
             this.setState({...this.state, ...spanning(wideDesktop, totalCols, offset, this.props.gutters)});
         }
-        console.log(this.state)
     }
     componentWillUnmount() {
         for (var i=0; i<this.props.mqls.length; i++){
