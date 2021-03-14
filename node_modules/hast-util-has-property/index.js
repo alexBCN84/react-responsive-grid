@@ -4,7 +4,7 @@ var own = {}.hasOwnProperty
 
 module.exports = hasProperty
 
-/* Check if `node` has a set `name` property. */
+// Check if `node` has a set `name` property.
 function hasProperty(node, name) {
   var props
   var value

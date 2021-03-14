@@ -1,6 +1,7 @@
 import ArrayExpression from './ArrayExpression.js';
 import ArrowFunctionExpression from './ArrowFunctionExpression.js';
 import AssignmentExpression from './AssignmentExpression.js';
+import AwaitExpression from './AwaitExpression.js';
 import BinaryExpression from './BinaryExpression.js';
 import BreakStatement from './BreakStatement.js';
 import CallExpression from './CallExpression.js';
@@ -17,6 +18,7 @@ import FunctionDeclaration from './FunctionDeclaration.js';
 import FunctionExpression from './FunctionExpression.js';
 import Identifier from './Identifier.js';
 import IfStatement from './IfStatement.js';
+import Import from './Import.js';
 import ImportDeclaration from './ImportDeclaration.js';
 import ImportDefaultSpecifier from './ImportDefaultSpecifier.js';
 import ImportSpecifier from './ImportSpecifier.js';
@@ -49,6 +51,7 @@ export default {
 	ArrayExpression,
 	ArrowFunctionExpression,
 	AssignmentExpression,
+	AwaitExpression,
 	BinaryExpression,
 	BreakStatement,
 	CallExpression,
@@ -66,6 +69,7 @@ export default {
 	FunctionExpression,
 	Identifier,
 	IfStatement,
+	Import,
 	ImportDeclaration,
 	ImportDefaultSpecifier,
 	ImportSpecifier,

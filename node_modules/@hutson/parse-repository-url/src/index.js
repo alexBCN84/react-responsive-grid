@@ -1,6 +1,6 @@
 'use strict';
 
-const {parse} = require(`url`);
+const { parse } = require(`url`);
 
 const URL_PATTERNS = new RegExp(/^\/?:?([/\w-.]+)\/([\w-.]+)\/?$/);
 const GITHUB_API = new RegExp(/^\/repos\/([\w-.]+)\/([\w-.]+)\/(?:tarball|zipball)(?:\/.+)?$/);
@@ -16,7 +16,7 @@ module.exports = url => {
 
   const parsedURL = parse(modifiedURL);
   const format = matches => {
-    return {browse: createBrowseURL(parsedURL, matches), domain: parsedURL.host, project: matches[2] || null, type: getType(parsedURL), user: matches[1] || null};
+    return { browse: createBrowseURL(parsedURL, matches), domain: parsedURL.host, project: matches[2] || null, type: getType(parsedURL), user: matches[1] || null };
   };
 
   if (parsedURL.host) {
@@ -34,7 +34,7 @@ module.exports = url => {
   return format(URL_PATTERNS.exec(parsedURL.pathname) || []);
 };
 
-function getType(parsedURL) {
+function getType (parsedURL) {
   if (typeof parsedURL.host !== `string`) {
     return null;
   }
@@ -49,7 +49,7 @@ function getType(parsedURL) {
   return null;
 }
 
-function createBrowseURL(parsedURL, matches) {
+function createBrowseURL (parsedURL, matches) {
   const protocol = parsedURL.protocol === `http:` ? `http:` : `https:`;
   const browseURL = `${protocol}//${parsedURL.host}/${matches[1]}/${matches[2]}`;
 
