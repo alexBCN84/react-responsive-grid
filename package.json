@@ -43,6 +43,24 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-uglify": "^6.0.2"
   },
+  "resolutions": {
+    "minimatch": "^3.0.5",
+    "glob-parent": "^5.1.2",
+    "node-forge": "^1.3.0",
+    "shell-quote": "^1.7.3",
+    "loader-utils": "^1.4.1",
+    "serialize-javascript": "^3.1.0",
+    "immer": "^9.0.6",
+    "ejs": "^3.1.7",
+    "trim-newlines": "^3.0.1",
+    "node-fetch": "^2.6.7",
+    "nth-check": "^2.0.1",
+    "trim": "^0.0.3",
+    "prismjs": "^1.24.0",
+    "yargs-parser": "^13.1.2",
+    "react-dev-utils": "^11.0.4",
+    "browserslist": "^4.16.5"
+  },
   "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/plugin-proposal-class-properties": "^7.3.3",
