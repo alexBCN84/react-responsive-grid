@@ -35,7 +35,7 @@
   "homepage": "https://github.com/alexBCN84/react-responsive-grid#readme",
   "devDependencies": {
     "babel-preset-react": "^6.24.1",
-    "docz": "^0.13.7",
+    "docz": "^2.3.3-alpha.0",
     "docz-theme-default": "^0.13.7",
     "react": "^16.8.2",
     "rollup": "^1.2.1",
